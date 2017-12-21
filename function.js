@@ -9,10 +9,21 @@ var year = d.getFullYear();
 var currentMonth = month;
 var dt = new Date(monthNames[month] + '/' + 01 + '/' + year);
 
+var todayMonth = month + 1;
+var todayDate = todayMonth.toString() + '/' + date.toString() + '/' + year.toString();
+var eventdate1 = "12/24/2017";
+var event1 = "Christmas Eve";
+var eventdate2 = "12/25/2017";
+var event2 = "Christmas Day";
+var eventdate3 = "12/27/2017";
+var event3 = "Bryce B-Day";
+var eventdate4 = "12/31/2017";
+var event4 = "New Years Eve";
+
 
 $(function () {
-
     var totalMonthDays = daysInMonth(month, year);
+    var previousMonthDays = daysInMonth(month - 1, year);
     emptyArray();
     dayofweekswitch();
     $("#month").empty();
@@ -21,7 +32,21 @@ $(function () {
     for (i = 0; i < 42; i++) {
         $('#day' + i).empty();
         if (dates[i] >= 1 && dates[i] <= totalMonthDays) {
-            $('#day' + i).append(dates[i]);
+            var eventmonth = month + 1;
+            var wholeDate = eventmonth.toString() + '/' + dates[i].toString() + '/' + year.toString();
+            if (wholeDate == todayDate) {
+                $('#day' + i).append("Today")
+            } else if (wholeDate == eventdate1) {
+                $('#day' + i).append(event1)
+            } else if (wholeDate == eventdate2) {
+                $('#day' + i).append(event2)
+            } else if (wholeDate == eventdate3) {
+                $('#day' + i).append(event3)
+            } else if (wholeDate == eventdate4) {
+                $('#day' + i).append(event4)
+            } else {
+                $('#day' + i).append(dates[i])
+            }
         }
 
     }
@@ -41,7 +66,21 @@ $(function () {
         for (i = 0; i < 42; i++) {
             $('#day' + i).empty();
             if (dates[i] >= 1 && dates[i] <= totalMonthDays) {
-                $('#day' + i).append(dates[i]);
+                var eventmonth = month + 1;
+                var wholeDate = eventmonth.toString() + '/' + dates[i].toString() + '/' + year.toString();
+                if (wholeDate == todayDate) {
+                    $('#day' + i).append("Today")
+                } else if (wholeDate == eventdate1) {
+                    $('#day' + i).append(event1)
+                } else if (wholeDate == eventdate2) {
+                    $('#day' + i).append(event2)
+                } else if (wholeDate == eventdate3) {
+                    $('#day' + i).append(event3)
+                } else if (wholeDate == eventdate4) {
+                    $('#day' + i).append(event4)
+                } else {
+                    $('#day' + i).append(dates[i])
+                }
             }
         }
         $("#month").empty();
@@ -64,7 +103,21 @@ $(function () {
         for (i = 0; i < 42; i++) {
             $('#day' + i).empty();
             if (dates[i] >= 1 && dates[i] <= totalMonthDays) {
-                $('#day' + i).append(dates[i]);
+                var eventmonth = month + 1;
+                var wholeDate = eventmonth.toString() + '/' + dates[i].toString() + '/' + year.toString();
+                if (wholeDate == todayDate) {
+                    $('#day' + i).append("Today")
+                } else if (wholeDate == eventdate1) {
+                    $('#day' + i).append(event1)
+                } else if (wholeDate == eventdate2) {
+                    $('#day' + i).append(event2)
+                } else if (wholeDate == eventdate3) {
+                    $('#day' + i).append(event3)
+                } else if (wholeDate == eventdate4) {
+                    $('#day' + i).append(event4)
+                } else {
+                    $('#day' + i).append(dates[i])
+                }
             }
         }
         $("#month").empty();
