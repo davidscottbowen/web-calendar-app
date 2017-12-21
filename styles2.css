@@ -1,0 +1,19 @@
+.boxed {
+    width: 56%;
+    height: 8%;
+    border: 1px solid green;
+}
+.weekdaybox {
+    width: 8%;
+    height: 4%;
+    border: 1px solid green;
+    text-align: center;
+}
+.daybox {
+    width: 8%;
+    height: 13.5%;
+    border: 1px solid green;
+}
+.center {
+    text-align: center;
+}
