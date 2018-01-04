@@ -22,8 +22,9 @@ $(function () {
     for (i = 0; i < 42; i++) {
         $('#day' + i).empty();
         if (dates[i] >= 1 && dates[i] <= totalMonthDays) {
-            var eventmonth = month + 1;
-            var wholeDate = eventmonth.toString() + '/' + dates[i].toString() + '/' + year.toString();
+            var wholeMonth = month + 1;
+            var wholeDate = wholeMonth.toString() + '/' + dates[i].toString() + '/' + year.toString();
+            // $("#test").append("WholeDate: " + wholeDate + "   TodayDate: " + todayDate + '<br>');
             if (wholeDate == todayDate) {
                 $('#day' + i).addClass('today');
             }
@@ -32,6 +33,10 @@ $(function () {
     }
 
     $("button#nextmonth").click(function (ev) {
+        $("#test").empty();
+        for (i = 0; i < 42; i++) {
+            $('#day' + i).removeClass("today");
+        }
         emptyArray();
         month = month + 1;
         if (month > 11) {
@@ -40,14 +45,16 @@ $(function () {
         };
         dt = new Date(monthNames[month] + '/' + 01 + '/' + year);
         var totalMonthDays = daysInMonth(month, year);
-
         dayofweekswitch();
-
         for (i = 0; i < 42; i++) {
             $('#day' + i).empty();
             if (dates[i] >= 1 && dates[i] <= totalMonthDays) {
-                var eventmonth = month + 1;
-                var wholeDate = eventmonth.toString() + '/' + dates[i].toString() + '/' + year.toString();
+                var wholeMonth = month + 1;
+                var wholeDate = wholeMonth.toString() + '/' + dates[i].toString() + '/' + year.toString();
+                // $("#test").append("WholeDate: " + wholeDate + "   TodayDate: " + todayDate + '<br>');
+                if (wholeDate == todayDate) {
+                    $('#day' + i).addClass('today');
+                }
                 $('#day' + i).append(dates[i])
             }
         }
@@ -56,7 +63,12 @@ $(function () {
     });
 
     $("button#previousmonth").click(function (ev) {
+        $("#test").empty();
+        for (i = 0; i < 42; i++) {
+            $('#day' + i).removeClass("today");
+        }
         emptyArray();
+        var wholeMonth = month - 1;
         month = month - 1;
         if (month < 0) {
             month = 11
@@ -70,11 +82,16 @@ $(function () {
         for (i = 0; i < 42; i++) {
             $('#day' + i).empty();
             if (dates[i] >= 1 && dates[i] <= totalMonthDays) {
-                var eventmonth = month + 1;
-                var wholeDate = eventmonth.toString() + '/' + dates[i].toString() + '/' + year.toString();
+                var wholeMonth = month + 1;
+                var wholeDate = wholeMonth.toString() + '/' + dates[i].toString() + '/' + year.toString();
+                // $("#test").append("WholeDate: " + wholeDate + "   TodayDate: " + todayDate + '<br>');
+                if (wholeDate == todayDate) {
+                    $('#day' + i).addClass('today');
+                }
                 $('#day' + i).append(dates[i])
             }
         }
+
         $("#month").empty();
         $("#month").append(monthNames[month] + ' ' + year);
     });
